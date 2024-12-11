@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+    <record id="view_haftalik_degisim_tree" model="ir.ui.view">
+        <field name="name">haftalik.degisim.tree</field>
+        <field name="model">stok.planlama.raporu</field>
+        <field name="arch" type="xml">
+            <tree string="Haftalık Değişim Raporu">
+                <field name="tarih" string="Tarih Aralığı"/>
+                <field name="urun_adi" string="Ürün Adı"/>
+                <field name="cinsiyet" string="Cinsiyet"/>
+                <field name="urun_grubu" string="Ürün Grubu"/>
+                <field name="urun_tipi" string="Ürün Tipi"/>
+                <field name="satis" string="Satış"/>
+                <field name="envanter_tl" string="Envanter TL (Maliyet)"/>
+                <field name="satis_yuzde" string="Satış %"/>
+                <field name="envanter_tl_yuzde" string="Envanter TL %"/>
+                <field name="satis_miktari" string="Satış Miktarı"/>
+                <field name="envanter" string="Envanter (Ortalama)"/>
+                <field name="satis_miktari_yuzde" string="Satış Miktarı %"/>
+                <field name="envanter_yuzde" string="Envanter %"/>
+                <field name="brut_kar" string="Brüt Kâr (TL)"/>
+                <field name="indirim_orani" string="İndirim Oranı (%)"/>
+                <field name="mark_up" string="Mark-Up"/>
+                <field name="cover" string="Cover"/>
+                <field name="str_orani" string="STR%"/>
+                <field name="gmroi" string="GMROI"/>
+                <field name="ilk_fiyattan_satis_orani" string="İlk Fiyattan Satış Oranı (%)"/>
+            </tree>
+        </field>
+    </record>
+
+  
+    <record id="view_haftalik_degisim_pivot" model="ir.ui.view">
+        <field name="name">haftalik.degisim.pivot</field>
+        <field name="model">stok.planlama.raporu</field>
+        <field name="arch" type="xml">
+            <pivot string="Haftalık Değişim Raporu">
+                <field name="tarih" interval="week" type="row" string="Tarih Aralığı"/>
+                <field name="urun_adi" type="row" string="Ürün Adı"/>
+                <field name="cinsiyet" type="row" string="Cinsiyet"/>
+                <field name="urun_grubu" type="row" string="Ürün Grubu"/>
+                <field name="urun_tipi" type="row" string="Ürün Tipi"/>
+                <field name="satis" type="measure" string="Satış"/>
+                <field name="envanter_tl" type="measure" string="Envanter TL (Maliyet)"/>
+                <field name="satis_yuzde" type="measure" string="Satış %"/>
+                <field name="envanter_tl_yuzde" type="measure" string="Envanter TL %"/>
+                <field name="satis_miktari" type="measure" string="Satış Miktarı"/>
+                <field name="envanter" type="measure" string="Envanter (Ortalama)"/>
+                <field name="satis_miktari_yuzde" type="measure" string="Satış Miktarı %"/>
+                <field name="envanter_yuzde" type="measure" string="Envanter %"/>
+                <field name="brut_kar" type="measure" string="Brüt Kâr (TL)"/>
+                <field name="indirim_orani" type="measure" string="İndirim Oranı (%)"/>
+                <field name="mark_up" type="measure" string="Mark-Up"/>
+                <field name="cover" type="measure" string="Cover"/>
+                <field name="str_orani" type="measure" string="STR%"/>
+                <field name="gmroi" type="measure" string="GMROI"/>
+                <field name="ilk_fiyattan_satis_orani" type="measure" string="İlk Fiyattan Satış Oranı (%)"/>
+            </pivot>
+        </field>
+    </record>
+
+  
+    <record id="view_haftalik_degisim_graph" model="ir.ui.view">
+        <field name="name">haftalik.degisim.graph</field>
+        <field name="model">stok.planlama.raporu</field>
+        <field name="arch" type="xml">
+            <graph string="Haftalık Değişim Raporu" type="bar">
+                <field name="tarih" interval="week" string="Tarih Aralığı"/>
+                <field name="satis" type="measure" string="Satış"/>
+                <field name="envanter_tl" type="measure" string="Envanter TL (Maliyet)"/>
+                <field name="envanter" type="measure" string="Envanter (Ortalama)"/>
+                <field name="brut_kar" type="measure" string="Brüt Kâr (TL)"/>
+                <field name="indirim_orani" type="measure" string="İndirim Oranı (%)"/>
+                <field name="mark_up" type="measure" string="Mark-Up"/>
+                <field name="cover" type="measure" string="Cover"/>
+                <field name="str_orani" type="measure" string="STR%"/>
+                <field name="gmroi" type="measure" string="GMROI"/>
+                <field name="ilk_fiyattan_satis_orani" type="measure" string="İlk Fiyattan Satış Oranı (%)"/>
+            </graph>
+        </field>
+    </record>
+
+   
+    <record id="view_haftalik_degisim_search" model="ir.ui.view">
+        <field name="name">haftalik.degisim.search</field>
+        <field name="model">stok.planlama.raporu</field>
+        <field name="arch" type="xml">
+            <search string="Haftalık Değişim Raporu">
+                <filter name="filter_sezon" string="Sezon" domain="[('sezon', '!=', False)]"/>
+                <filter name="filter_kalite_segmenti" string="Kalite Segmenti" domain="[('kalite_segmenti', '!=', False)]"/>
+                <filter name="filter_zaman_segmenti" string="Zaman Segmenti" domain="[('zaman_segmenti', '!=', False)]"/>
+                <filter name="filter_yas_segmenti" string="Yaş Segmenti" domain="[('yas_segmenti', '!=', False)]"/>
+                <filter name="filter_satis_durumu" string="Satış Durumu" domain="[('satis_durumu', '!=', False)]"/>
+                <filter name="filter_cinsiyet" string="Cinsiyet" domain="[('cinsiyet', '!=', False)]"/>
+                <filter name="filter_urun_grubu" string="Ürün Grubu" domain="[('urun_grubu', '!=', False)]"/>
+                <filter name="filter_urun_tipi" string="Ürün Tipi" domain="[('urun_tipi', '!=', False)]"/>
+                <filter name="filter_urun_renk" string="Ürün Renk" domain="[('urun_renk', '!=', False)]"/>
+                <filter name="filter_urun_kodu" string="Ürün Kodu" domain="[('urun_kodu', '!=', False)]"/>
+                <filter name="filter_tedarikci" string="Tedarikçi" domain="[('tedarikci', '!=', False)]"/>
+                <filter name="filter_satis_ekibi" string="Satış Ekibi" domain="[('satis_ekibi', '!=', False)]"/>
+                <filter name="filter_depo" string="Depo" domain="[('depo_id', '!=', False)]"/>
+                <filter name="filter_tarih" string="Tarih" date="tarih"/>
+                <filter name="filter_hafta" string="Hafta" domain="[('hafta', '!=', False)]"/>
+                <group expand="1" string="Gruplama">
+                    <filter string="Ürün Grubu" name="group_urun_grubu" context="{'group_by': 'urun_grubu'}"/>
+                    <filter string="Ürün Tipi" name="group_urun_tipi" context="{'group_by': 'urun_tipi'}"/>
+                    <filter string="Hafta" name="group_week" context="{'group_by': 'tarih:week'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+  
+    <record id="action_haftalik_degisim" model="ir.actions.act_window">
+        <field name="name">Haftalık Değişim Raporu</field>
+        <field name="res_model">stok.planlama.raporu</field>
+        <field name="view_mode">tree,pivot,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Hiçbir Haftalık Değişim Raporu bulunamadı.</p>
+            <p>Bu rapor haftalık değişim verilerini analiz etmenizi sağlar.</p>
+        </field>
+    </record>
+
+   
+    <menuitem id="menu_haftalik_degisim" name="Haftalık Değişim Raporu"
+              parent="stok_planlama_menu" action="action_haftalik_degisim"/>
+</odoo>
