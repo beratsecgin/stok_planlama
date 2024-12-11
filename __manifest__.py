@@ -1,23 +1,21 @@
 {
-    'name': 'Stok Planlama',
-    'version': '1.0',
-    'category': 'Inventory',
-    'summary': 'Module for stock planning and performance reporting',
+    'name': 'Stok Planlama Modülü',
+    'version': '1.0.0',
+    'summary': 'Stok planlama ve haftalık değişim raporlarını analiz etme modülü.',
     'description': """
-        A module to track and manage stock, sales KPIs, and inventory performance.
-        Features:
-        - Sales and inventory tracking
-        - KPI reporting
-        - Dynamic filtering
+        Bu modül, stok planlama ve haftalık değişim raporlarını içerir.
+        Kullanıcılar için özelleştirilmiş filtreler sunar.
     """,
     'author': 'Berat Seçgin',
-    'website': 'https://test.togo.com.tr',
-    'depends': ['base', 'sale', 'stock'],  
+    'website': 'https://github.com/beratsecgin/stok_planlama',
+    'category': 'Warehouse Management',
+    'depends': ['base', 'stock', 'sale_management', 'purchase'],
     'data': [
-        'security/ir.model.access.csv',
-        'views/sales_kpi_views.xml',
-        'data/sales_kpi_data.xml',  # To test sample data set
+        'views/haftalik_degisim_raporu_views.xml',
+        'views/stok_planlama_menu.xml',
     ],
-    'installable': True,
     'application': True,
+    'license': 'LGPL-3',
+    'installable': True,
+    'auto_install': False,
 }
